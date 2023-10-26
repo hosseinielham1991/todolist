@@ -1,0 +1,7 @@
+.holder{
+    padding:50px;
+}
+
+:export {
+   holder:holder
+  }

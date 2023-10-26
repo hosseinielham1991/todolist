@@ -2,11 +2,11 @@ const colorPalette = {
   dark:{
      bg:{
       main:'#416a01',
-      primary:'#87d30c'
+      primary:'#f5f5f5'
      },
      font:{
       main: '#fff',
-      primary: '#fff'
+      primary: '#222'
      }
     }
 

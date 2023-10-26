@@ -1,0 +1,11 @@
+/* YourStyles.css */
+.flex-container {
+    display: flex;
+    flex-direction: row; /* Horizontal arrangement */
+    align-items: center; /* Vertically center the items */
+  }
+  
+  label {
+    flex: 1; /* Label takes up 1 part of available space */
+    margin-right: 10px; /* Optional margin between label and input */
+  }
