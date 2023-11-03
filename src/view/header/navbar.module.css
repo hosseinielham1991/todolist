@@ -1,6 +1,18 @@
 .btnSelectedColor{
     width:2rem;
     height:2rem;
-    box-shadow: 1px 1px 7px rgba(0, 0, 0, 0.8) !important;
-    border: 1px solid rgba(0, 0, 0, 0.8);
+}
+.eachBtnColor{
+    width:2rem;
+    height:2rem;
+
+}
+.eachBtnColor:hover{
+border:1px solid #fff;
+cursor: pointer;
+
+}
+.holderAllColor{
+    width: 6rem!important;
+    flex-wrap: wrap;
 }

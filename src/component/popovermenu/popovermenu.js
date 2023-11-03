@@ -1,28 +1,27 @@
-import React ,{useState}from 'react';
+import React ,{useState,useContext}from 'react';
 import { Popover  } from 'antd';
+import {appContext} from '../../App.js'; // Import the context
+
 const Popovermenu = (props) => {
-    const [visible, setVisible] = useState(false);
-    
-    
-    const handleMenuClick = () => {
-        setVisible(true);
+
+    const [open, setOpen] = useState(false);
+    const { appPalette } = useContext(appContext); 
+  
+    const handleOpenChange = (newOpen) => {
+      setOpen(newOpen);
     };
 
     return (
-  
-    <div className={props.className} onClick={handleMenuClick}>
-        {props.btn}
         <Popover
-            arrowPointAtCenter
-            placement="center"
-            content={props.content}
-            open={visible}
-            onOpenChange={setVisible}
-            >
-        
-        </Popover>
-    </div>
-   
+        content={<div style={{ color: appPalette.font.primary }}>{props.content({ closePopover: () => setOpen(false) })}</div>}
+        trigger="click"
+        open={open}
+        color={appPalette.bg.primary}
+        onOpenChange={handleOpenChange}
+      >
+       {props.btn} {/* Pass closePopover callback */}
+      </Popover>
+
   );
 };
 

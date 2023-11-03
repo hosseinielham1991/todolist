@@ -1,10 +1,10 @@
 import React ,{useContext} from 'react' ;
-import {paletteContext} from '../../App.js'; // Import the context
+import {appContext} from '../../App.js'; // Import the context
 import { Layout ,Card} from 'antd';
 function Container() {
     
 
-    const { appPalette } = useContext(paletteContext); // Use appPalette, not palette
+    const { appPalette } = useContext(appContext); // Use appPalette, not palette
   
     const titleContent = (
         <div>

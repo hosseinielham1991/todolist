@@ -9,3 +9,13 @@
     flex: 1; /* Label takes up 1 part of available space */
     margin-right: 10px; /* Optional margin between label and input */
   }
+
+  .cursor-pointer{
+    cursor: pointer;
+  }
+
+  
+.selected-color-light{
+  color: #222 !important;
+}
+
