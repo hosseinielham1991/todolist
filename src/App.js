@@ -12,23 +12,21 @@ const appContext = createContext("");
 
 
 const App = () => {
-  const [appData, appSetData] = useState(JSON.parse(localStorage.getItem("todolistData") || '{"name":"My Friend!","tasks":[],"theme":"green"}'));
+  const [appData, setAppData] = useState(JSON.parse(localStorage.getItem("todolistData") || '{"name":"My Friend!","tasks":{"todo":[],"progress":[],"done":[]},"theme":"green"}'));
   const [appPalette, setAppPalette] = useState(colorPalette[appData.theme]);
   
+  useEffect(() => {
+    document.body.style.backgroundColor = appPalette.bg.primary;
+  }, [appPalette]);
 
   useEffect((params) => {
-    //({"name":"hi my friend!","tasks":[]});
-    
     localStorage.setItem('todolistData', JSON.stringify(appData));
-
-    //setData( {"name":'dfsfsdfsdfsdfsd',"tasks":[]})
-
   }, [appData]);
 
   const { Header,Content } = Layout;
 
   return (
-    <appContext.Provider value={{ appPalette, setAppPalette ,appData, appSetData}}>
+    <appContext.Provider value={{ appPalette, setAppPalette ,appData, setAppData}}>
       {
       <ConfigProvider
           theme={{
@@ -36,20 +34,12 @@ const App = () => {
               colorPrimary: appPalette.bg.main,      
               colorBgBase: appPalette.bg.main,     
               colorTextBase: appPalette.font.main, 
-              cardBorderColor: 'red'     
             },
             components: {
               Layout: {
                 bodyBg: appPalette.bg.primary
-              },
-              Card:{
-                cardBorderColor: 'red'     
-              },
-              Popover:{
-                bodyBg: 'red'
               }
-            },
-            cardBorderColor: 'red'     
+            }    
           }}
         >
         
@@ -58,7 +48,8 @@ const App = () => {
                 <Navbar></Navbar>
           </Header>
           <Content style={{}}>
-            <Container > </Container>
+            <Container >
+             </Container>
           </Content>
         </Layout>
       

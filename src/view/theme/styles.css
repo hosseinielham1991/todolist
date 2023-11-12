@@ -1,4 +1,8 @@
 /* YourStyles.css */
+html,body{
+  height:100%;
+}
+
 .flex-container {
     display: flex;
     flex-direction: row; /* Horizontal arrangement */
@@ -17,5 +21,11 @@
   
 .selected-color-light{
   color: #222 !important;
+}
+
+.custom-column {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 20px;
 }
 

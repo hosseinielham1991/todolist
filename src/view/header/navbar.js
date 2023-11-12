@@ -5,10 +5,11 @@ import {  SettingOutlined ,CheckCircleOutlined } from '@ant-design/icons';
 import Popovermenu from '../../component/popovermenu/popovermenu.js';
 import styles from './navbar.module.css';
 import colorPalette from '../theme/palette.js';
+import { BgColorsOutlined } from '@ant-design/icons';
 
 function Navbar() {
 
-  const { appPalette,setAppPalette,  appData, appSetData } = useContext(appContext); 
+  const { appPalette,setAppPalette,  appData, setAppData } = useContext(appContext); 
   const [ inputName, setInputName ] = useState((appData.name==="My Friend!"?"":appData.name)); 
 
 
@@ -18,7 +19,7 @@ function Navbar() {
   const onSaveName = (closePopover)=>{
     closePopover();
     appData.name = inputName === ""? "My Friend!":inputName;
-    appSetData ({...appData})
+    setAppData ({...appData})
 
   };
 
@@ -42,6 +43,9 @@ function Navbar() {
 
  const changeTheme =(typeTheme)=>{
     setAppPalette(colorPalette[typeTheme]);
+    appData.theme = typeTheme;
+    setAppData ({...appData})
+
  }
 
   const popoverContentColor = ()=>{
@@ -56,7 +60,9 @@ function Navbar() {
      
   },
 
-  popoverBtntColor =(<><div style={{backgroundColor:appPalette.bg.main,border:'1px solid'+appPalette.font.main,boxShadow:' 0px 0px 1px 1px '+appPalette.font.main }} className={styles.btnSelectedColor + ' ms-3 rounded cursor-pointer'}></div></>);
+  popoverBtntColor =(<div style={{backgroundColor:appPalette.bg.main,border:'1px solid'+appPalette.border.primary,boxShadow:' 0px 0px 2px 2px '+appPalette.border.primary }} className={styles.btnSelectedColor + ' ms-3 rounded cursor-pointer d-flex justify-content-center'}>
+    <BgColorsOutlined style={{color:appPalette.font.main}}></BgColorsOutlined>
+  </div>);
 
 
     return (

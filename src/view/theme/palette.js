@@ -1,4 +1,60 @@
 const colorPalette = {
+  dark: {
+    name: 'dark',
+    bg: {
+      main: '#333',
+      primary: '#444',
+      todo: '#FF9800',   // Orange color for todo
+      progress: '#2196F3', // Blue color for progress
+      done: '#4CAF50',   // Green color for done
+    },
+    font: {
+      main: '#fff',
+      primary: '#ddd',
+    },
+    border: {
+      main: '#666',
+      primary: '#242424',
+    },
+  },
+  light: {
+    name: 'light',
+    bg: {
+      main: '#f5f5f5',
+      primary: '#fff',
+      todo: '#FF9800',   // Orange color for todo
+      progress: '#2196F3', // Blue color for progress
+      done: '#4CAF50',   // Green color for done
+    },
+    font: {
+      main: '#333',
+      primary: '#444',
+    },
+    border: {
+      main: '#dcdcdc',
+      primary:'#e6e6e6'
+    },
+  },
+  purple: {
+    name: 'purple',
+    bg: {
+      main: '#800080',
+      primary: '#dcdcdc',
+      todo: '#FF9800',   // Orange color for todo
+      progress: '#2196F3', // Blue color for progress
+      done: '#4CAF50',   // Green color for done
+    },
+    font: {
+      main: '#fff',
+      primary: '#333',
+    },
+    border: {
+      main: '#800080',
+      primary:'#610061'
+    },
+  },
+};
+/*const colorPalette = {
   green: {
     name: 'green',
     bg: {
@@ -125,6 +181,6 @@ const colorPalette = {
       main: '#00ffff',
     },
   },
-};
+};*/
 
 export default colorPalette;
