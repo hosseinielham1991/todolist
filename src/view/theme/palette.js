@@ -4,6 +4,7 @@ const colorPalette = {
     bg: {
       main: '#333',
       primary: '#444',
+      btn:'#575A5E',
       todo: '#FF9800',   // Orange color for todo
       progress: '#2196F3', // Blue color for progress
       done: '#4CAF50',   // Green color for done
@@ -22,6 +23,7 @@ const colorPalette = {
     bg: {
       main: '#f5f5f5',
       primary: '#fff',
+      btn:'#C8C8C8',
       todo: '#FF9800',   // Orange color for todo
       progress: '#2196F3', // Blue color for progress
       done: '#4CAF50',   // Green color for done
@@ -38,8 +40,9 @@ const colorPalette = {
   purple: {
     name: 'purple',
     bg: {
-      main: '#800080',
-      primary: '#dcdcdc',
+      main: '#576490',
+      primary: '#7796CB',
+      btn:'#A3BCF9',
       todo: '#FF9800',   // Orange color for todo
       progress: '#2196F3', // Blue color for progress
       done: '#4CAF50',   // Green color for done
@@ -49,8 +52,8 @@ const colorPalette = {
       primary: '#333',
     },
     border: {
-      main: '#800080',
-      primary:'#610061'
+      main: '#D1D2F9',
+      primary:'#7796CB'
     },
   },
 };

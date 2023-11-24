@@ -17,3 +17,17 @@ border:1px solid transparent;
     width:24px;
     height:24px;
 }
+
+.eachItem{
+    display: flex;
+    flex-direction:row;
+    border-bottom: 1px solid transparent;
+}
+
+.holdertitle{
+    flex:1 1 0;
+}
+
+.holderBtns{
+
+}

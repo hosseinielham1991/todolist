@@ -29,3 +29,31 @@ html,body{
   margin-bottom: 20px;
 }
 
+
+.ant-input{
+  box-shadow: none!important;;
+}
+
+.bg-todo{
+  background-color:#FF9800;
+}
+.bg-progress{
+  background-color:#2196F3;
+}
+.bg-done{
+  background-color:#4CAF50;
+}
+
+.font-todo{
+  color:#FF9800;
+}
+.font-progress{
+  color:#2196F3;
+}
+.font-done{
+  color:#4CAF50;
+}
+
+.font-delete{
+  color:#f5222d;
+}

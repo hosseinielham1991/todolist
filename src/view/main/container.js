@@ -1,34 +1,54 @@
-import React ,{useContext} from 'react' ;
+import React ,{useContext,useState} from 'react' ;
 import {appContext} from '../../App.js'; // Import the context
-import { Layout ,Card} from 'antd';
+import { Layout ,Card, Space,Button,Input} from 'antd';
 import Levelcard from '../main/levelcard.js'
-import { ClockCircleOutlined,LoadingOutlined,CheckCircleOutlined,AudioOutlined  } from '@ant-design/icons';
+import { ClockCircleOutlined,LoadingOutlined,CheckCircleOutlined  } from '@ant-design/icons';
 function Container() {
     
-    const {appPalette,  appData, setAppData } = useContext(appContext); 
-   
-    const suffix = (
-        <AudioOutlined
-          style={{
-            fontSize: 16,
-            color: '#1677ff',
-          }}
-        />
-      );
+    const {appPalette,getMainstate ,  updateMainState} = useContext(appContext); 
+    const [inputnewtask,setInputnewtask] = useState()
+
+    const copy_task = getMainstate();
+
+    const  addTask = ()=>{
+
+      updateMainState({newtask:{title:inputnewtask,status:1,id:Date.now().toString()}})
+     
+      setInputnewtask('');
+
+    }
+
     const titleContent = (
-        <div>
-          <h3>This is a custom title with HTML content</h3>
-          <p>You can put any HTML elements here.</p>
+        <div className='col-lg-4'>
+          <Space.Compact style={{ width: '100%' }}>
+            <Input onChange ={(event)=>{ setInputnewtask((event.target.value)); }} value={inputnewtask} placeholder="Enter your task here" />
+            <Button onClick={addTask}>Add</Button>
+          </Space.Compact>
         </div>
     );
-    const icons = {todo:<ClockCircleOutlined  ></ClockCircleOutlined>,
-    progress:<LoadingOutlined  ></LoadingOutlined>,
-    done:<CheckCircleOutlined  ></CheckCircleOutlined>}
-    const levelcards = Object.entries(appData.tasks).map(([key, value]) => {
+
+    
+
+    const seperate_task = {
+      todo:{list:[],icon:<ClockCircleOutlined  ></ClockCircleOutlined>},
+      progress:{list:[],icon:<LoadingOutlined  ></LoadingOutlined>},
+      done:{list:[],icon:<CheckCircleOutlined  ></CheckCircleOutlined>}
+    },
+    enum_type = {1:'todo',2:'progress',3:'done'}
+
+    for (const element of  copy_task.tasks) {
+  
+      seperate_task[enum_type[element.status]].list.push(element)
+      
+    }
+
+
+    const levelcards = Object.entries(seperate_task).map(([key, value]) => {
         return <div key={key} className="col">
-            <Levelcard icon={icons[key]} background={appPalette.bg[key]} title={key} value={value} ></Levelcard>
+            <Levelcard list={value.list} icon={value.icon} background={'bg-'+key} title={key}></Levelcard>
             </div>
       });
+
 
     return (
         <Layout style={{backgroundColor:appPalette.bg.primary, color:appPalette.font.primary}} className={'p-4 container-lg '}>

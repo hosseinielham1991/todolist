@@ -9,8 +9,11 @@ import { BgColorsOutlined } from '@ant-design/icons';
 
 function Navbar() {
 
-  const { appPalette,setAppPalette,  appData, setAppData } = useContext(appContext); 
-  const [ inputName, setInputName ] = useState((appData.name==="My Friend!"?"":appData.name)); 
+  const { appPalette,setAppPalette, updateMainState ,getMainstate } = useContext(appContext); 
+  const copy_appData = getMainstate();
+
+  
+  const [ inputName, setInputName ] = useState((copy_appData.name==="My Friend!"?"":copy_appData.name)); 
 
 
   const handleDataChange =(e)=>{
@@ -18,8 +21,8 @@ function Navbar() {
   };
   const onSaveName = (closePopover)=>{
     closePopover();
-    appData.name = inputName === ""? "My Friend!":inputName;
-    setAppData ({...appData})
+
+    updateMainState({name:inputName === ""? "My Friend!":inputName })
 
   };
 
@@ -33,18 +36,18 @@ function Navbar() {
       <input onChange={handleDataChange} value={inputName} type="text" id="inputField" />
       </div>
       <div  className={'d-flex flex-row-reverse align-items-center '}>
-         <Button onClick={()=>{onSaveName(closePopover)}} type="primary" className='mt-2'>Save</Button>
+         <Button onClick={()=>{onSaveName(closePopover)}}  className='mt-2'>Save</Button>
       </div>
     </div> 
   },
   popoverBtntName =(<span className='cursor-pointer'>  
   <SettingOutlined style={{color:appPalette.font.main}}/>&nbsp;
-  <Text style={{color:appPalette.font.main}}>{appData.name}</Text></span>);
+  <Text style={{color:appPalette.font.main}}>{copy_appData.name}</Text></span>);
 
  const changeTheme =(typeTheme)=>{
     setAppPalette(colorPalette[typeTheme]);
-    appData.theme = typeTheme;
-    setAppData ({...appData})
+   
+    updateMainState ({theme :typeTheme})
 
  }
 
