@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/hosseinielham1991/todolist/static/css/main.2cde65ca.css",
+    "main.js": "/hosseinielham1991/todolist/static/js/main.39245857.js",
+    "static/js/787.97a945da.chunk.js": "/hosseinielham1991/todolist/static/js/787.97a945da.chunk.js",
+    "index.html": "/hosseinielham1991/todolist/index.html",
+    "main.2cde65ca.css.map": "/hosseinielham1991/todolist/static/css/main.2cde65ca.css.map",
+    "main.39245857.js.map": "/hosseinielham1991/todolist/static/js/main.39245857.js.map",
+    "787.97a945da.chunk.js.map": "/hosseinielham1991/todolist/static/js/787.97a945da.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2cde65ca.css",
+    "static/js/main.39245857.js"
+  ]
+}
