@@ -5,7 +5,7 @@ import './view/theme/styles.css';
 import Navbar from './view/header/navbar.js';
 import Container from './view/main/container.js';
 import { Layout,ConfigProvider} from 'antd';
-import {hexToRgba} from './utils.js'
+
 
 // Create a context
 const appContext = createContext("");
@@ -40,6 +40,19 @@ const App = () => {
 
     // eslint-disable-next-line default-case
     switch (action.type){
+      case 'title':{
+        
+        appData.tasks = appData.tasks.filter(function (item) {
+          if( item.id === action.id){
+            item.title = action.value;
+            
+          }
+
+           return item;
+        });
+
+        break;
+      }
       case 'delete':{
         appData.tasks = appData.tasks.filter(function (item) {
           return item.id !== action.id;
