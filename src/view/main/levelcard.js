@@ -12,10 +12,10 @@ const [inputedittask,setInputedittask] = useState();
 
 const btns = ({id,title})=>{
     return <>
-   <DeleteOutlined onClick={()=>{ clickOnICon({type:'delete',id:id})}} className='p-1 font-delete cursor-pointer'></DeleteOutlined>
-    { [props.title === 'todo' && <RightSquareOutlined onClick={()=>{ clickOnICon({type:'change',id:id,value:1})}}  className='p-1 font-progress cursor-pointer'></RightSquareOutlined>]  }
-    { [props.title === 'progress' && <LeftSquareOutlined  onClick={()=>{ clickOnICon({type:'change',id:id,value:-1})}}  className='p-1 font-todo cursor-pointer'></LeftSquareOutlined>]  }
-    { [props.title !== 'done' && <CheckCircleOutlined className='p-1 font-done cursor-pointer'  onClick={()=>{ clickOnICon({type:'done',id:id})}}></CheckCircleOutlined>]}
+   <DeleteOutlined   onClick={()=>{ clickOnICon({type:'delete',id:id})}} className='p-1 font-delete cursor-pointer'></DeleteOutlined>
+    { [props.title === 'todo' && <RightSquareOutlined key={'status_one_'+id} onClick={()=>{ clickOnICon({type:'change',id:id,value:1})}}  className='p-1 font-progress cursor-pointer'></RightSquareOutlined>]  }
+    { [props.title === 'progress' && <LeftSquareOutlined  key={'status_two_'+id} onClick={()=>{ clickOnICon({type:'change',id:id,value:-1})}}  className='p-1 font-todo cursor-pointer'></LeftSquareOutlined>]  }
+    { [props.title !== 'done' && <CheckCircleOutlined  key={'status_compelete'+id} className='p-1 font-done cursor-pointer'  onClick={()=>{ clickOnICon({type:'done',id:id})}}></CheckCircleOutlined>]}
     <FormOutlined className='' onClick={()=>{showInputForEdit({id:id,title:title})}}></FormOutlined>
 </>
 }
@@ -47,18 +47,19 @@ const  clickOnICon = ({type,id,value})=>{
 
 
 
-const html_list = props.list.map((item)=>{
+const html_list = props.list.map((item,index)=>{
     
-    const html = <div style={{'borderColor':appPalette.border.primary}}  className={styles.eachItem + ' w-100 p-2'}>
-       {isModeEdit !== item.id && <><div className={styles.holdertitle+' d-flex justify-content-center  align-items-center' }>
-        <label title={item.title} className={styles.title}>{item.title}</label></div> 
-       <div className={styles.holderBtns +' d-flex justify-content-center  align-items-center'}>
-        {btns({id:item.id,title:item.title})}
-       </div></>}
-       {isModeEdit === item.id && inputEdit({id:item.id,value:item.title})}
-    </div>
+    const html =( <div  key={index+'dffffd'} style={{'borderColor':appPalette.border.primary}}  className={styles.eachItem + ' w-100 p-2'}>
+    {isModeEdit !== item.id && <><div className={styles.holdertitle+' d-flex justify-content-center  align-items-center' }>
+     <label title={item.title} className={styles.title}>{item.title}</label></div> 
+    <div className={styles.holderBtns +' d-flex justify-content-center  align-items-center'}>
+     {btns({id:item.id,title:item.title})}
+    </div></>}
+    {isModeEdit === item.id && inputEdit({id:item.id,value:item.title})}
+ </div>);
 
-    return html;
+ return html;
+    
 })
 
 
